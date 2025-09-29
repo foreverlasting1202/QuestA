@@ -1,0 +1,160 @@
+experiment_name: partial-arealite
+trial_name: Nemotron-32768-partial-50-openr1-temp-1-0-high-0-2
+cluster:
+  n_nodes: 4
+  n_gpus_per_node: 8
+  fileroot: /path/to/fileroot
+  cluster_name: na132
+  name_resolve:
+    type: nfs
+    nfs_record_root: /path/to/name_resolve
+    etcd3_addr: [etcd3_addr]
+seed: 1
+allocation_mode: sglang.d16p1t1+d16p1t1
+total_train_epochs: 100
+total_train_steps: null
+tokenizer_path: ${actor.path}
+async_training: true
+
+rlvr:
+  gconfig:
+    n_samples: 16
+    min_new_tokens: 0
+    max_new_tokens: 512
+    greedy: false
+    temperature: 1.0
+  max_prompt_len: 512
+  enable_thinking: true
+  success_rate_ub: 1.0
+  success_rate_lb: 0.0
+
+rlvr_test:
+  gconfig:
+    n_samples: 16
+    min_new_tokens: 0
+    max_new_tokens: 30720
+    greedy: false
+    temperature: 0.7
+    top_p: 0.95
+  max_prompt_len: 512
+  enable_thinking: true
+  success_rate_ub: 0.95
+  success_rate_lb: 0.05
+
+rollout:
+  experiment_name: ${experiment_name}
+  trial_name: ${trial_name}
+  max_concurrent_rollouts: 128
+  queue_size: null
+  consumer_batch_size: ${train_dataset.batch_size}
+  max_head_offpolicyness: 4
+  enable_rollout_tracing: true
+  setup_timeout: 300
+
+
+actor:
+  experiment_name: ${experiment_name}
+  trial_name: ${trial_name}
+  path: /path/to/OpenMath-Nemotron-1.5B
+  init_from_scratch: false
+  disable_dropout: true
+  gradient_checkpointing: true
+  dtype: bfloat16
+  mb_spec:
+    max_tokens_per_mb: 32768
+  optimizer:
+    type: adam
+    lr: 2e-5
+    weight_decay: 0.05
+    beta1: 0.9
+    beta2: 0.95
+    eps: 1e-05
+    lr_scheduler_type: constant
+    gradient_clipping: 1.0
+    warmup_steps_proportion: 0.001
+  backend: fsdp
+
+  group_size: ${rlvr.gconfig.n_samples}
+  group_adv_norm: false
+  eps_clip: 0.2
+  temperature: ${rlvr.gconfig.temperature}
+  reward_scaling: 5.0
+  reward_bias: 0.0
+  kl_ctl: 0.0
+  ppo_n_minibatches: 1
+  recompute_logprob: true
+  use_decoupled_loss: true
+  behav_imp_weight_cap: 5.0
+
+ref:
+  experiment_name: ${experiment_name}
+  trial_name: ${trial_name}
+  path: ${actor.path}
+  init_from_scratch: false
+  dtype: ${actor.dtype}
+  mb_spec:
+    max_tokens_per_mb: 32768
+  optimizer: null
+  backend: fsdp
+
+# SGLang
+server_only: false
+sglang:
+  model_path: ${actor.path}
+  random_seed: ${seed}
+  skip_tokenizer_init: true
+  dtype: ${actor.dtype}
+  max_running_requests: 128
+  context_length: 32768
+  mem_fraction_static: 0.7
+
+# datasets
+train_dataset:
+  batch_size: 32
+  shuffle: true
+  pin_memory: true
+
+valid_dataset:
+  batch_size: 64
+  shuffle: true
+  pin_memory: true
+
+# Utilities
+saver:
+  experiment_name: ${experiment_name}
+  trial_name: ${trial_name}
+  fileroot: ${cluster.fileroot}
+  freq_epochs: null
+  freq_steps: 50
+  freq_secs: null
+
+recover:
+  mode: auto
+  experiment_name: ${experiment_name}
+  trial_name: ${trial_name}
+  fileroot: ${cluster.fileroot}
+  freq_epochs: null
+  freq_steps: 3
+  freq_secs: null
+
+evaluator:
+  experiment_name: ${experiment_name}
+  trial_name: ${trial_name}
+  fileroot: ${cluster.fileroot}
+  freq_epochs: null
+  freq_steps: 50
+  freq_secs: null
+
+stats_logger:
+  experiment_name: ${experiment_name}
+  trial_name: ${trial_name}
+  fileroot: ${cluster.fileroot}
+  wandb:
+    mode: disabled
+
+# Launcher
+launcher:
+  inference_server_cpus_per_gpu: 10
+  inference_server_mem_per_gpu: 150000
+  trainer_cpus_per_gpu: 10
+  trainer_mem_per_gpu: 150000

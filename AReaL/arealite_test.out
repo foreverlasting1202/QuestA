@@ -1,0 +1,24 @@
+nohup: ignoring input
+[37m20250730-16:33:53.510 name-resolve INFO: No such name resolve path: /storage/openpsi/experiments/name_resolve/admin/ljz-rl-partial-math-su18-arealite/Nemotron-32768-partial-50-25-openr1-temp-1-0-high-0-2-final-bf16-3[0m
+[37m20250730-16:33:53.643 SlurmLauncher INFO: Submitted Slurm job ljz-rl-partial-math-su18-arealite_Nemotron-32768-partial-50-25-openr1-temp-1-0-high-0-2-final-bf16-3:llm_server to scheduler. To check the output, run 
+	`tail -f /storage/openpsi/experiments/logs/admin/ljz-rl-partial-math-su18-arealite/Nemotron-32768-partial-50-25-openr1-temp-1-0-high-0-2-final-bf16-3/llm_server.log`.[0m
+[37m20250730-16:35:25.217 Launcher Utils INFO: Found 96 SGLang servers: 10.11.17.96:40738, 10.11.21.92:42579, 10.11.17.96:36983, 10.11.17.115:35811, 10.11.23.74:27404, 10.11.17.82:20930, 10.11.17.115:12653, 10.11.21.92:21101, 10.11.17.94:37106, 10.11.16.56:37359, 10.11.23.74:11856, 10.11.19.203:25254, 10.11.23.74:33205, 10.11.16.56:25733, 10.11.17.125:32535, 10.11.23.74:16492, 10.11.17.70:22422, 10.11.17.70:27140, 10.11.16.56:21975, 10.11.16.199:45509, 10.11.17.94:46722, 10.11.17.115:47613, 10.11.23.74:46049, 10.11.17.82:25671, 10.11.17.125:10446, 10.11.16.199:30967, 10.11.17.49:37119, 10.11.17.82:45384, 10.11.17.49:40999, 10.11.17.70:36218, 10.11.17.96:45914, 10.11.16.199:21150, 10.11.19.203:41666, 10.11.17.82:41699, 10.11.17.125:20087, 10.11.17.49:16600, 10.11.17.70:30628, 10.11.17.82:35040, 10.11.21.92:35712, 10.11.17.82:15138, 10.11.17.94:31165, 10.11.17.49:47044, 10.11.17.115:21020, 10.11.23.74:21014, 10.11.17.70:40471, 10.11.21.92:45042, 10.11.17.115:26119, 10.11.17.96:10704, 10.11.17.49:23529, 10.11.16.199:40211, 10.11.17.115:17076, 10.11.17.125:15034, 10.11.17.94:20813, 10.11.17.125:41819, 10.11.17.94:15830, 10.11.17.49:32357, 10.11.16.56:12598, 10.11.16.56:30122, 10.11.19.203:15430, 10.11.16.199:37546, 10.11.17.70:16433, 10.11.19.203:36221, 10.11.16.199:17913, 10.11.17.94:13543, 10.11.17.96:32238, 10.11.21.92:12946, 10.11.17.82:30051, 10.11.16.199:28156, 10.11.17.125:29367, 10.11.16.199:11753, 10.11.23.74:36534, 10.11.17.70:11013, 10.11.17.82:11971, 10.11.16.56:18705, 10.11.23.74:40525, 10.11.16.56:40152, 10.11.17.49:10669, 10.11.16.56:46413, 10.11.17.49:28395, 10.11.21.92:16144, 10.11.17.70:46430, 10.11.19.203:32626, 10.11.17.96:21091, 10.11.17.94:28244, 10.11.17.125:47384, 10.11.21.92:28864, 10.11.21.92:32287, 10.11.17.96:15748, 10.11.19.203:46713, 10.11.17.115:40168, 10.11.17.125:35061, 10.11.19.203:11637, 10.11.17.96:26385, 10.11.17.94:40949, 10.11.19.203:22682, 10.11.17.115:30025[0m
+[37m20250730-16:35:25.329 SlurmLauncher INFO: Submitted Slurm job ljz-rl-partial-math-su18-arealite_Nemotron-32768-partial-50-25-openr1-temp-1-0-high-0-2-final-bf16-3:trainer to scheduler. To check the output, run 
+	`tail -f /storage/openpsi/experiments/logs/admin/ljz-rl-partial-math-su18-arealite/Nemotron-32768-partial-50-25-openr1-temp-1-0-high-0-2-final-bf16-3/trainer.log`.[0m
+[37m20250730-16:35:25.339 SlurmLauncher INFO: Waiting for 2 jobs. Jobs IDs: 891188,891189.[0m
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/conda/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/storage/openpsi/users/shenshen.ljz/AReaLite/AReaL/arealite/launcher/slurm.py", line 530, in <module>
+    slurm_main()
+  File "/storage/openpsi/users/shenshen.ljz/AReaLite/AReaL/arealite/launcher/slurm.py", line 513, in slurm_main
+    launcher.wait(
+  File "/storage/openpsi/users/shenshen.ljz/AReaLite/AReaL/arealite/launcher/slurm.py", line 361, in wait
+    self._update_all()
+  File "/storage/openpsi/users/shenshen.ljz/AReaLite/AReaL/arealite/launcher/slurm.py", line 386, in _update_all
+    slurm_infos = query_jobs(slurm_ids=list(self.jobs.keys()))
+  File "/storage/openpsi/users/shenshen.ljz/AReaLite/AReaL/arealite/utils/slurm.py", line 123, in query_jobs
+    state=STATUS_MAPPING[state],
+KeyError: 'NODE_FAIL'

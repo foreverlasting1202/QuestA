@@ -1,0 +1,46 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Tutorial
+    chapters:
+    - file: tutorial/installation
+    - file: tutorial/quickstart
+    - file: tutorial/quickstart_legacy
+    - file: tutorial/eval
+    - file: tutorial/troubleshooting
+  - caption: Getting Started with AReaLite
+    chapters:
+    - file: arealite/gsm8k_grpo
+  - caption: References
+    chapters:
+    - file: references/benchmark
+    - file: references/reproduce
+  - caption: Customization
+    chapters:
+    - file: customization/dataset
+    - file: customization/agent
+    - file: customization/algorithm
+  - caption: Code Walkthrough (Legacy)
+    chapters:
+    - file: developer/overview
+    - file: developer/trainer
+      sections:
+        - file: developer/trainer/master_worker
+        - file: developer/trainer/model_worker
+        - file: developer/trainer/algo_interface
+        - file: developer/trainer/allocation_parallel
+    - file: developer/rollout
+      sections:
+        - file: developer/rollout/gserver
+        - file: developer/rollout/rollout_worker
+  - caption: Contributing
+    chapters:
+    - file: contrib
+  - caption: Customization (Legacy)
+    chapters:
+    - file: legacy/customization/dataset
+    - file: legacy/customization/agent
+    - file: legacy/customization/algorithm

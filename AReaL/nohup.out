@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/conda/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/storage/openpsi/users/shenshen.ljz/AReaLite/AReaL/arealite/launcher/slurm.py", line 9, in <module>
+    import realhf.base.logging as logging
+  File "/storage/openpsi/users/shenshen.ljz/AReaLite/AReaL/realhf/__init__.py", line 7, in <module>
+    from .version import __version__
+  File "/storage/openpsi/users/shenshen.ljz/AReaLite/AReaL/realhf/version.py", line 30, in <module>
+    subprocess.check_call(
+  File "/opt/conda/lib/python3.10/subprocess.py", line 364, in check_call
+    retcode = call(*popenargs, **kwargs)
+  File "/opt/conda/lib/python3.10/subprocess.py", line 347, in call
+    return p.wait(timeout=timeout)
+  File "/opt/conda/lib/python3.10/subprocess.py", line 1209, in wait
+    return self._wait(timeout=timeout)
+  File "/opt/conda/lib/python3.10/subprocess.py", line 1959, in _wait
+    (pid, sts) = self._try_wait(0)
+  File "/opt/conda/lib/python3.10/subprocess.py", line 1917, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+KeyboardInterrupt
