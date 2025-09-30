@@ -6,8 +6,6 @@ href="https://mercurial-kidney-02d.notion.site/QuestA-Expanding-Reasoning-Capaci
 href="https://huggingface.co/foreverlasting1202/QuestA-Nemotron-1.5B"><b>🤗Models</b></a> | <a
 href="https://huggingface.co/datasets/foreverlasting1202/QuestA"><b>🤗Datas</b></a> | <a
 </p>
-
-
 ## Overview
 
 QuestA is a reinforcement learning (RL) approach aimed at improving the reasoning capabilities of large language models (LLMs) by augmenting questions with partial solutions. This method dynamically adjusts the difficulty of problems during training by providing intermediate solutions, thereby guiding the model through difficult problems and enhancing both its efficiency and reasoning power.
