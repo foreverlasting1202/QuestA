@@ -1,13 +1,20 @@
 import json
-from utils import load_jsonl, save_jsonl, split_prefix
 import argparse
 from datasets import load_dataset
+
+def split_prefix(text, scale):
+    length = len(text)
+    length *= scale
+    pre_text = text[:int(length)]
+    suf_text = text[int(length):]
+    return pre_text, suf_text
 
 
 def main():
     # conver to dict_keys(['query_id', 'verify', 'prompt', 'final_answer', 'answer'])
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_path", type=str, default='./OpenR1-50-0-4.jsonl')
+    parser.add_argument("--ratio", type=int, default=50)
     args = parser.parse_args()
 
     with open(args.data_path, "r") as f:
@@ -23,7 +30,7 @@ def main():
                 text = text[1:]
                 text = text[:-1]
             solution = text.split('</think>')[-1]
-            prefix, suffix = split_prefix(solution, 0.25)
+            prefix, suffix = split_prefix(solution, args.ratio / 100)
             if len(prefix) < 10:
                 prompt = d['problem'] + '\n\n'
             else:
