@@ -11,6 +11,8 @@ QuestA is a reinforcement learning (RL) approach aimed at improving the reasonin
 
 This repository includes code, models, and datasets to reproduce the results presented in the associated paper.
 
+![benchmarks](figures/benchmarks.png)
+
 ## Repository Links
 
 - **Code**: `./AReaL`
@@ -33,7 +35,7 @@ This repository includes code, models, and datasets to reproduce the results pre
 
 3. **Data Preprocessing**: Use the following Python scripts from the `./AReaL/datasets` directory to preprocess the data:
 
-   - **First**, run `add_prefix.py` to add prefixes to the data.
+   - **First**, run `add_prefix.py --data_path /path/to/data --ratio ratio` to add $p=\text{ratio}/100$-prefixes to the data.
    - **Next**, process the data using `process.py`.
    - **Finally**, convert the processed data to Hugging Face format using `convert2hf.py`.
 
@@ -66,6 +68,21 @@ Once you have trained the **Partial_50_25 Model**, you can evaluate it by yourse
 We also provide a pre-trained **Partial_50_25 Model**, which you can download from:
 
 - [Pre-trained Model](https://huggingface.co/foreverlasting1202/QuestA-Nemotron-1.5B)
+
+# Evaluation Results
+
+If you successfully reproduce the above process and complete model training, or use a pre-trained model available on HuggingFace, you will obtain the following results by referring to the testing process provided on HuggingFace:
+
+| Model                   | AIME24   | AIME25   | HMMT FEB 25 | Olympiad Bench | BRUMO25  | Avg.     |
+| ----------------------- | -------- | -------- | ----------- | -------------- | -------- | -------- |
+| DeepSeek-R1-Distill-32B | **72.6** | 51.8     | 33.0        | 65.0           | 68.0     | 58.1     |
+| Qwen3-1.7B              | 48.3     | 36.8     | 22.2        | 56.1           | 44.1     | 41.5     |
+| Nemotron-1.5B           | 61.8     | 49.5     | 31.6        | 64.6           | 58.2     | 53.1     |
+| *QuestA*-Nemotron-1.5B  | 72.5     | **62.3** | **41.7**    | **70.4**       | **69.5** | **63.3** |
+
+![pass_full](figures/pass_full.png)
+
+
 
 ## Conclusion
 
