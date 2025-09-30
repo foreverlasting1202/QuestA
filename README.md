@@ -1,9 +1,12 @@
 # QuestA
 
 <p align="center">
-  | <a href="https://www.arxiv.org/abs/2507.13266"><b>Paper</b></a> | <a href="https://github.com/foreverlasting1202/QuestA/"><b>Documentation</b></a> | <a href="https://huggingface.co/foreverlasting1202/QuestA-Nemotron-1.5B"><b>🤗Models</b></a> | <a
+  | <a href="https://www.arxiv.org/abs/2507.13266"><b>Paper</b></a> | <a href="https://github.com/foreverlasting1202/QuestA/"><b>Documentation</b></a> | <a
+href="https://mercurial-kidney-02d.notion.site/QuestA-Expanding-Reasoning-Capacity-in-LLMs-via-Question-Augmentation-216b21d08abb81a1bcecfe79e7d1e88a"><b>Blog</b></a> | <a
+href="https://huggingface.co/foreverlasting1202/QuestA-Nemotron-1.5B"><b>🤗Models</b></a> | <a
 href="https://huggingface.co/datasets/foreverlasting1202/QuestA"><b>🤗Datas</b></a> | <a
 </p>
+
 
 ## Overview
 
