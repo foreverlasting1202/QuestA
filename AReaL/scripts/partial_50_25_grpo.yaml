@@ -20,13 +20,13 @@ rlvr:
   gconfig:
     n_samples: 16
     min_new_tokens: 0
-    max_new_tokens: 512
+    max_new_tokens: 24000
     greedy: false
     temperature: 1.0
-  max_prompt_len: 512
+  max_prompt_len: 2048
   enable_thinking: true
-  success_rate_ub: 1.0
-  success_rate_lb: 0.0
+  success_rate_ub: 0.95
+  success_rate_lb: 0.05
 
 rlvr_test:
   gconfig:
