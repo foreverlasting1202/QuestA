@@ -110,7 +110,7 @@ sglang:
 
 # datasets
 train_dataset:
-  batch_size: 32
+  batch_size: 128
   shuffle: true
   pin_memory: true
 
