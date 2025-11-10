@@ -1,7 +1,7 @@
 experiment_name: partial-arealite
 trial_name: Nemotron-32768-partial-50-openr1-temp-1-0-high-0-2
 cluster:
-  n_nodes: 4
+  n_nodes: 8
   n_gpus_per_node: 8
   fileroot: /path/to/fileroot
   cluster_name: na132
