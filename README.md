@@ -92,3 +92,23 @@ If you successfully reproduce the above process and complete model training, or 
 QuestA leverages question augmentation to efficiently train models on difficult reasoning tasks. By incorporating partial solutions during training, the model's reasoning capacity is improved, leading to substantial performance gains across math and other reasoning benchmarks. The code and models are provided to help reproduce and extend this work.
 
 For further details on the method and experimental results, please refer to the [paper](https://www.arxiv.org/pdf/2507.13266).
+
+## License
+
+This code repository is licensed under [the MIT License](https://github.com/WeiboAI/VibeThinker/blob/main/LICENSE).
+
+## Citations
+
+If you use QuestA in your research or product, please cite:
+
+```
+@misc{li2025questaexpandingreasoningcapacity,
+      title={QuestA: Expanding Reasoning Capacity in LLMs via Question Augmentation}, 
+      author={Jiazheng Li and Hongzhou Lin and Hong Lu and Kaiyue Wen and Zaiwen Yang and Jiaxuan Gao and Yi Wu and Jingzhao Zhang},
+      year={2025},
+      eprint={2507.13266},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2507.13266}, 
+}
+```
